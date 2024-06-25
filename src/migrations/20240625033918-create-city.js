@@ -10,7 +10,9 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull:false,
+        unique: true
       },
       createdAt: {
         allowNull: false,
@@ -23,6 +25,7 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
+    await queryInterface.removeConstraint('Airports', 'Airports_ibfk_1');
     await queryInterface.dropTable('Cities');
   }
 };
