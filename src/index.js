@@ -26,7 +26,7 @@ const setupAndStartServer = async()=>{
          {
               db.sequelize.sync({alter: true})
          }
-       
+        
         
       
          
